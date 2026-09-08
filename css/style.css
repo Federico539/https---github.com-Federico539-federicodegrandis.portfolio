@@ -200,34 +200,31 @@ section p span {
     flex-direction: column;
     justify-content:baseline;
     align-items:flex-start;
-    gap: 6rem;
 }
 
 .about .card,
 .portfolio .card {
-    border-bottom: 0.5rem solid green;
-    padding: 0 2.5rem;
-}
-
-.about .card .card-wrapper,
-.portfolio .card .card-wrapper{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
     gap: 10rem;
-    height: 40vh;
+    min-height: 100px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    border-bottom: 0.5rem solid green;
 }
 
 .about .card .card-content,
 .portfolio .card .card-content {
     width: 70%;
+    height: 100%;
 }
 
 .about .card .card-image,
 .portfolio .card .card-image {
     width: 30%;
-    height: 100%;
+    min-height: 200px;
     background-color: white;
     border-radius: 2rem;
     display: flex;
