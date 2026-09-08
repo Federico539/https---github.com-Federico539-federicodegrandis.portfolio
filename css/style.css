@@ -140,90 +140,29 @@ section {
     font-weight: 500;
 }
 
-.social-icon a{
-    display: inline-flex;
+.social-icons {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-    height: 4rem;
-    background-color: transparent;
-    border: 0.2 solid green;
-    font-size: 2rem;
-    border-radius: 50%;
-    margin: 3rem 1.5rem 3rem 0;
-    transition: 0.3s ease;
-    color: green;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-.social-icon a:hover {
-    color: black;
-    transform: scale(1.3) translate(-5px);
-    background-color: green;
-    box-shadow: 0 0 25px green;
+.social-icons a i, 
+.social-icons a svg {
+    color: rgb(0, 255, 0) !important; 
+    font-size: 5rem;                 
+    transition: transform 0.2s;        
 }
 
-.btn {
-    display: inline-block;
-    padding: 1rem 2.8rem;
-    background-color: black;
-    border-radius: 4rem;
-    font-size: 1.6rem;
-    color: green;
-    letter-spacing: 0.3rem;
-    font-weight: 600;
-    border: 2px solid green;
-    transition: 0.3s ease;
-    cursor: pointer;
 
+.social-icons a:hover {
+    color: white !important;
+    transform: scale(1.3);
+    box-shadow: 0 0 25px black;
 }
 
-.btn:hover {
-    transform: scale3d(1.03);
-    background-color: green;
-    color: black;
-    box-shadow: 0 0 25px green;
-}
-
-.typing-text {
-    font-size: 34px;
-    font-weight: 600;
-    min-width: 280px; 
-}
-
-@media(max-width:1000px) {
-    .home {
-        gap: 4rem;
-    }
-}
-
-@media(max-width:995px) {
-    .home {
-        flex-direction: column;
-        margin: 5rem 4rem;
-    }
-
-    .home .home-content h1 {
-        font-size: 5rem;
-    }
-
-    .home .home-content h3 {
-        font-size: 2.5rem;
-    }
-
-    .home-img img {
-        width: 70vh;
-        margin-top: 4rem;
-    }
-}
-
-.about .about-content{
-    display: flex;
-    flex-direction: column;
-    justify-content:baseline;
-    align-items:flex-start;
-}
-
-.about h1 {
+section h1 {
     font-size: 6rem;
     font-weight: 700;
     line-height: 1.3;
@@ -241,12 +180,12 @@ section h4 {
 }
 
 section h5 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 300;
 }
 
 section p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-top: 0.9rem;
 }
@@ -255,28 +194,36 @@ section p span {
     color: green;
 }
 
+.about .about-content,
+.portfolio .portfolio-content {
+    display: flex;
+    flex-direction: column;
+    justify-content:baseline;
+    align-items:flex-start;
+}
 
-.card {
+.about .card,
+.portfolio .card {
+    width: 100%;
+    min-height: 40vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    padding: 3.8rem 0;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     gap: 10rem;
+    padding: 2rem 0;
     border-bottom: 0.5rem solid green;
 }
 
 .about .card .card-content,
 .portfolio .card .card-content {
     width: 70%;
-    height: 100%;
 }
 
 .about .card .card-image,
 .portfolio .card .card-image {
     width: 30%;
-    min-height: 200px;
+    height: 30vh;
     background-color: white;
     border-radius: 2rem;
     display: flex;
@@ -286,19 +233,79 @@ section p span {
 }
 
 .about .card .card-image img {
-    width: 100%;
+    width: 90%;
     
 }
 
-.portfolio h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    line-height: 1.3;
+.portfolio .card .card-image img {
     width: 50%;
+    
 }
 
-.portfolio h3 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+@media(max-width:1024px) {
+    .home {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .home-img img {
+        width: 40vh;
+        margin-top: 4rem;
+    }
+
+    .about .card,
+    .portfolio .card  {
+        gap: 3rem;
+    }
+
+    .about .card .card-content,
+    .portfolio .card .card-content {
+        width: 50%;
+    }
+
+    .about .card .card-image,
+    .portfolio .card .card-image {
+        width: 50%;  
+        max-height: 75%;
+    }
+
+    .about .card .card-image img {
+        width: 100%;
+    }
+
+    .portfolio .card .card-image img {
+        width: 80%;  
+    }
+}
+
+@media(max-width:668px) {
+
+    .about .card,
+    .portfolio .card {
+        flex-direction: column-reverse;
+        min-height: 50vh;
+        gap: 2rem;
+        margin-bottom: 0;
+    }
+
+    .about .card .card-content,
+    .portfolio .card .card-content {
+        width: 100%;
+    }
+
+    .about .card .card-image,
+    .portfolio .card .card-image {
+        width: 100%;
+    }
+
+    .about .about-content,
+    .portfolio .portfolio-content {
+        gap: 5.5rem;
+    }
+
+    .about .card .card-image img {
+        padding: 2rem 0;
+    }
+
+    
 }
