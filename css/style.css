@@ -61,35 +61,21 @@ nav a:active {
     border-bottom: 3px solid green;
 }
 
-@media(max-width:995px) {
-    nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 40%;
-        border-bottom: 3px solid green;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: black;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
-    }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
 
-    nav:active {
-        display: block;
-    }
-
-    nav a {
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    nav a:hover,
-    nav a:active {
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid green;
-    }
+.hamburger .bar {
+    width: 3rem;
+    height: 0.3rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
 section {
@@ -278,7 +264,64 @@ section p span {
     }
 }
 
-@media(max-width:668px) {
+@media(max-width:995px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 40%;
+        border-bottom: 3px solid green;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: black;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s ease;
+    }
+
+    nav.active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 1.3rem;
+    }
+
+    nav a:hover,
+    nav a:active {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid green;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(0.8rem) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-0.8rem) rotate(-45deg);
+    }
+}
+
+@media(max-width:768px) {
 
     .about .card,
     .portfolio .card {

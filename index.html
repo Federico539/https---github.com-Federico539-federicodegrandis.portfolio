@@ -14,6 +14,12 @@
     <header>
         <a href="#" class="logo">Federico De Grandis</a>
 
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
         <nav>
             <a href="#" class="active">Home</a>
             <a href="#">Chi Sono</a>
@@ -138,4 +144,20 @@
     </main>
 </body>
 <script src="https://cloudflare.com" crossorigin="anonymous"></script>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+</script>
 </html>
