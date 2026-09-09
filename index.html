@@ -21,13 +21,13 @@
         </button>
 
         <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">Chi Sono</a>
-            <a href="#">Portfolio</a>
+            <a href="#home">Home</a>
+            <a href="#about">Chi Sono</a>
+            <a href="#portfolio">Portfolio</a>
         </nav>
     </header>
         
-    <section class="home">
+    <section id="home" class="home">
         <div class="home-img">
             <img src="resources/fototessera-removebg-preview.png" alt="">
         </div>
@@ -46,7 +46,7 @@
     </section>
     
     <main>
-        <section class="about">
+        <section id="about" class="about">
             <h1>Chi sono</h1>  
             <h3>Formazione</h3>
             <div class="about-content">         
@@ -91,7 +91,7 @@
                 </div> 
             </div>         
         </section>
-        <section class="portfolio">
+        <section id="portfolio" class="portfolio">
             <h1>Portfolio</h1>
             <h3>Le mie realizzazioni</h3>
             <div class="portfolio-content">
@@ -142,11 +142,16 @@
             </div>
         </section>
     </main>
+    <footer>
+        <p>Federico De Grandis 2026 - All Rights Reserved</p>
+    </footer>
 </body>
 <script src="https://cloudflare.com" crossorigin="anonymous"></script>
 <script>
     const hamburger = document.getElementById('hamburger');
     const nav = document.querySelector('nav');
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksDesktop = document.querySelectorAll('nav a');
 
     hamburger.addEventListener('click', () => {
         nav.classList.toggle('active');
@@ -159,5 +164,28 @@
             hamburger.classList.remove('active');
         });
     });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -40%  0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+
+                navLinksDesktop.forEach(link => {
+                    link.classList.remove('active-link');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                    link.classList.add('active-link');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
 </script>
 </html>
