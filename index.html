@@ -152,6 +152,7 @@
     const nav = document.querySelector('nav');
     const sections = document.querySelectorAll('section[id]');
     const navLinksDesktop = document.querySelectorAll('nav a');
+    const cards = document.querySelectorAll('.card');
 
     hamburger.addEventListener('click', () => {
         nav.classList.toggle('active');
@@ -186,6 +187,16 @@
         });
     }, observerOptions);
 
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { thresold: 0.15 });
+
     sections.forEach(section => observer.observe(section));
+    cards.forEach(card => cardObserver.observe(card));
 </script>
 </html>
